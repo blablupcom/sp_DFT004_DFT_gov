@@ -107,11 +107,9 @@ for block in blocks:
     if not a:
         continue
     link = a['href']
-
     title = block.find('span','inner-cell').text.strip().split(' ')[0].strip()
     csvYr = title.split('/')[-1]
     csvMth = title.split('/')[0]
-
     block.find('span', 'inner-cell').text.strip()
     if ' to ' in block.find('span','inner-cell').text.strip():
         if 'to 11th May 2010' in block.find('span','inner-cell').text.strip():
@@ -122,17 +120,6 @@ for block in blocks:
             csvYr = '2009'
     data.append([csvYr, csvMth, link])
 
-    title = block.find('div',{'class':'inner2'}).getText()
-    title = title.strip()
-
-    if len(title.split()) > 3:
-        pass
-    else:
-        title = title.strip()
-        csvYr = title.split(' ')[-2]
-        csvMth = title.split(' ')[-3][:3]
-        csvMth = convert_mth_strings(csvMth.upper())
-        data.append([csvYr, csvMth, link])
 
 #### STORE DATA 1.0
 
