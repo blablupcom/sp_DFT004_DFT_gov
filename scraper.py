@@ -107,7 +107,7 @@ for block in blocks:
     if not a:
         continue
     link = a['href']
-<<<<<<< HEAD
+
     title = block.find('span','inner-cell').text.strip().split(' ')[0].strip()
     csvYr = title.split('/')[-1]
     csvMth = title.split('/')[0]
@@ -121,7 +121,7 @@ for block in blocks:
             csvMth = 'Y1'
             csvYr = '2009'
     data.append([csvYr, csvMth, link])
-=======
+
     title = block.find('div',{'class':'inner2'}).getText()
     title = title.strip()
 
@@ -133,7 +133,6 @@ for block in blocks:
         csvMth = title.split(' ')[-3][:3]
         csvMth = convert_mth_strings(csvMth.upper())
         data.append([csvYr, csvMth, link])
->>>>>>> 75cad58b04f4bc394c032162feb02ccd3f2c072a
 
 #### STORE DATA 1.0
 
@@ -154,9 +153,3 @@ for row in data:
 if errors > 0:
     raise Exception("%d errors occurred during scrape." % errors)
 
-
-<<<<<<< HEAD
-#### EOF
-=======
-#### EOF
->>>>>>> 75cad58b04f4bc394c032162feb02ccd3f2c072a
