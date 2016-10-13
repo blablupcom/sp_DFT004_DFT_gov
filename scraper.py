@@ -110,14 +110,12 @@ for block in blocks:
     title = block.find('span','inner-cell').text.strip().split(' ')[0].strip()
     csvYr = title.split('/')[-1]
     csvMth = title.split('/')[0]
-    block.find('span', 'inner-cell').text.strip()
-    if ' to ' in block.find('span','inner-cell').text.strip():
-        if 'to 11th May 2010' in block.find('span','inner-cell').text.strip():
-            csvMth = 'Q0'
-            csvYr = '2010'
-        if 'April 2009 to March 2010' in block.find('span','inner-cell').text.strip():
-            csvMth = 'Y1'
-            csvYr = '2009'
+    if 'to 11th May 2010' in block.find('span','inner-cell').text.strip():
+        csvMth = 'Q0'
+        csvYr = '2010'
+    if 'April 2009 to March 2010' in block.find('span','inner-cell').text.strip():
+        csvMth = 'Y1'
+        csvYr = '2009'
     data.append([csvYr, csvMth, link])
 
 
